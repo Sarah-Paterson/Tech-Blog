@@ -1,0 +1,28 @@
+<!-- title -->
+<div class="container has-text-centered">
+    <p class="title">
+        Welcome to the Blog!
+    </p>
+    <p class="subtitle">
+        - here are our recient posts -
+    </p>
+</div>
+
+<!-- cards -->
+{{#each post as |posts|}}
+<div class="box">
+    <article class="media">
+        <div class="media-content">
+            <div class="content">
+                <p>
+                    <strong>{{title}}</strong>
+                    <br>
+                    {{content}}
+                    <br>
+                    <small>posted by {{name}}</small> <small>on {{date}}</small>
+                </p>
+            </div>
+        </div>
+    </article>
+</div>
+{{/each}}
