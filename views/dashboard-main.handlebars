@@ -1,28 +1,35 @@
 <!-- title -->
 <div class="container has-text-centered">
     <p class="title">
-        Welcome to the Blog!
+        {{name}} Posts
     </p>
     <p class="subtitle">
-        - here are our recient posts -
+        - here are the posts you've created -
     </p>
 </div>
 
-<!-- cards -->
+<!-- my posts -->
 {{#each post as |posts|}}
-<div class="box">
-    <article class="media">
-        <div class="media-content">
-            <div class="content">
-                <p>
-                    <strong>{{title}}</strong>
-                    <br>
-                    {{content}}
-                    <br>
-                    <small>posted by {{name}}</small> <small>on {{date}}</small>
-                </p>
-            </div>
-        </div>
-    </article>
+<div class="card m-4">
+    <header class="card-header">
+      <p class="card-header-title">
+        {{title}}
+      </p>
+    </header>
+    <div class="card-content">
+      <div class="content">
+        {{content}}
+        <br>
+        {{date}}
+      </div>
+    </div>
+    <footer class="card-footer">
+      <a href="#" class="card-footer-item" id="post-edit-btn">Edit</a>
+      <a href="#" class="card-footer-item" id="post-delete-btn">Delete</a>
+    </footer>
 </div>
 {{/each}}
+
+<div class="container has-text-centered">
+    <button class="button is-primary m-4" id="new-post-btn">+ New Post</button>
+</div>
