@@ -1,28 +1,56 @@
-async function signIn(event) {
+const loginForm = async (event) => {
   event.preventDefault();
 
-  // Get the state of elements
-  const username = document.getElementById('login-username').value.trim();
-  const password = document.getElementById('login-password').value.trim();
+  const email = document.querySelector('#login-email').value.trim();
+  const password = document.querySelector('#login-password').value.trim();
 
-
-  // If everything looks good, send the data to try to log in. Otherwise display error
-  if (username && password) {
+  if (email && password) {
     const response = await fetch('/api/users/login', {
       method: 'POST',
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert('Something unexpected happened');
+      alert('Failed to log in.');
     }
-  } else {
-    alert('Invalid input');
   }
-}
+};
 
-console.log(document.location.origin);
-document.getElementById('login-btn').addEventListener('click', signIn);
+const signupForm = async (event) => {
+  event.preventDefault();
+
+  const username = document.querySelector('#signup-username').value.trim();
+  const email = document.querySelector('#signup-email').value.trim();
+  const password = document.querySelector('#signup-password').value.trim();
+
+  if (username && email && password) {
+    const response = await fetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify({ username, email, password }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert('Failed to sign up.');
+    }
+  }
+};
+
+const loginRedirect = async () => {
+  document.location.replace('/login');
+};
+
+const signupRedirect = async () => {
+  document.location.replace('/signup');
+};
+
+
+document.getElementById('signup-login-btn').addEventListener('click', loginRedirect);
+document.getElementById('login-signup-btn').addEventListener('click', signupRedirect);
+document.getElementById('login-btn').addEventListener('click', loginForm);
+document.getElementById('signup-btn').addEventListener('click', signupForm);

@@ -66,8 +66,8 @@ router.get('/dashboard/edit-post/:id', auth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id);
 
-    const Post = postData.get({ plain: true });
-    res.render('dashboard-edit-post', { Post, loggedIn: req.session.loggedIn });
+    const post = postData.get({ plain: true });
+    res.render('dashboard-edit-post', { post, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.error(err);
     res.status(500).json(err);
