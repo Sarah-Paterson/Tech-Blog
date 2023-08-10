@@ -16,7 +16,7 @@ const mainRedirect = async () => {
 };
 
 const dashboardRedirect = async () => {
-    document.location.replace('/dashboard-main');
+    document.location.replace('/dashboard');
 };
 
 const loginRedirect = async () => {

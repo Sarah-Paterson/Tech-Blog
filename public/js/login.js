@@ -20,11 +20,3 @@ const loginForm = async (event) => {
 };
 
 document.querySelector('#login-btn').addEventListener('click', loginForm);
-
-
-
-// const mainRedirect = async () => {
-//   document.location.replace('/');
-// };
-
-// document.querySelector('.home-btn').addEventListener('click', mainRedirect);
