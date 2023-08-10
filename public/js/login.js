@@ -19,38 +19,12 @@ const loginForm = async (event) => {
   }
 };
 
-const signupForm = async (event) => {
-  event.preventDefault();
-
-  const username = document.querySelector('#signup-username').value.trim();
-  const email = document.querySelector('#signup-email').value.trim();
-  const password = document.querySelector('#signup-password').value.trim();
-
-  if (username && email && password) {
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify({ username, email, password }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert('Failed to sign up.');
-    }
-  }
-};
-
-const loginRedirect = async () => {
-  document.location.replace('/login');
-};
-
-const signupRedirect = async () => {
-  document.location.replace('/signup');
-};
+document.querySelector('#login-btn').addEventListener('click', loginForm);
 
 
-document.getElementById('signup-login-btn').addEventListener('click', loginRedirect);
-document.getElementById('login-signup-btn').addEventListener('click', signupRedirect);
-document.getElementById('login-btn').addEventListener('click', loginForm);
-document.getElementById('signup-btn').addEventListener('click', signupForm);
+
+// const mainRedirect = async () => {
+//   document.location.replace('/');
+// };
+
+// document.querySelector('.home-btn').addEventListener('click', mainRedirect);

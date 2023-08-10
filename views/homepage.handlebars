@@ -1,38 +1,3 @@
-  {{!-- navigation --}}
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <span class="tag is-large m-4 is-primary">
-        The Tech Blog
-    </span>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      {{!-- <div class="navbar-start">
-        <a class="navbar-item">
-          Home
-        </a>
-
-        <a class="navbar-item">
-          Dashboard
-        </a>
-
-      </div> --}}
-
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary signup-btn">
-              Sign up
-            </a>
-            <a class="button is-primary is-light login-btn">
-              Log in
-            </a>
-            <a class="button is-light logout-btn">
-              Logout
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
 
 <!-- title -->
 <div class="container has-text-centered">
@@ -45,17 +10,17 @@
 </div>
 
 <!-- cards -->
-{{#each post as |posts|}}
-<div class="box">
+{{#each posts as |post|}}
+<div class="box mx-6">
     <article class="media">
         <div class="media-content">
             <div class="content">
                 <p>
-                    <strong>{{title}}</strong>
+                    <strong>{{post.title}}</strong>
                     <br>
-                    {{content}}
+                    {{post.content}}
                     <br>
-                    <small>posted by {{author}}</small> <small>on {{date}}</small>
+                    <small>posted by {{post.author}}</small> <small>on {{post.date}}</small>
                 </p>
             </div>
         </div>
@@ -63,5 +28,5 @@
 </div>
 {{/each}}
 
-<script src="js/login.js"></script>
+<script src="js/main.js"></script>
 <script src="js/logout.js"></script>

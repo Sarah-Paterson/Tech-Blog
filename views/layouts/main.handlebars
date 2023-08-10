@@ -9,12 +9,51 @@
 </head>
 
 <body>
+  
+    {{!-- navigation --}}
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <span class="tag is-large m-4 is-primary">
+        The Tech Blog
+    </span>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item home-btn">
+          Home
+        </a>
+
+        <a class="navbar-item dashboard-btn">
+          Dashboard
+        </a>
+
+      </div>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary signup-btn" id="homepage-signup-btn">
+              Sign up
+            </a>
+            <a class="button is-primary is-light login-btn" id="homepage-login-btn">
+              Log in
+            </a>
+            <a class="button is-light logout-btn" id="homepage-logout-btn">
+              Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <main>
     {{{ body }}}
   </main>
+
   <footer>
       
   </footer>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
