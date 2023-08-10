@@ -21,12 +21,41 @@
                     {{post.content}}
                     <br>
                     <small>posted by {{post.author}}</small> <small>on {{post.date}}</small>
+                    <br>
+                    {{#if loggedIn}}
+                    <small><a class="has-text-primary reply-btn">Reply</a></small>
+                    {{/if}}
                 </p>
             </div>
+                {{#each post.comments as |comment|}}
+                <article class="media">
+                    <div class="media-content">
+                        <div class="content">
+                        <p>
+                            <br>
+                            {{comment.comment}}
+                            <br>
+                            <small>posted by {{comment.author}}</small> <small>on {{comment.date}}</small>
+                    </div>
+                </article>
+                {{/each}}
+                <article class="media add-comment">
+                    <div class="media-content">
+                        <div class="field">
+                        <p class="control">
+                            <textarea class="textarea" placeholder="Add a comment..."></textarea>
+                        </p>
+                        </div>
+                        <div class="field">
+                        <p class="control">
+                            <button class="button post-comment-btn">Post comment</button>
+                        </p>
+                        </div>
+                    </div>
+                </article>
         </div>
     </article>
 </div>
 {{/each}}
 
-<script src="js/main.js"></script>
-<script src="js/logout.js"></script>
+<script src="js/homepage.js"></script>

@@ -11,7 +11,10 @@ router.get('/', async (req, res) => {
       post.get({ plain: true })
     );
     console.log(posts)
-    res.render('homepage', { posts });
+    res.render('homepage', {
+      posts,
+      loggedIn: req.session.loggedIn,
+    });
     
   } catch (err) {
     console.log(err);
@@ -25,7 +28,7 @@ router.get('/login', (req, res) => {
       return;
     }
   
-    res.render('login');
+    res.render('login', { loggedIn: req.session.loggedIn });
 });
   
 router.get('/signup', async (req, res) => {
@@ -34,7 +37,7 @@ router.get('/signup', async (req, res) => {
         return;
     }
       
-    res.render('signup');
+    res.render('signup', { loggedIn: req.session.loggedIn });
 });
 
 module.exports = router;

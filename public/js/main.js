@@ -1,15 +1,5 @@
 const loginBtn = document.querySelector('.login-btn');
 const signupBtn = document.querySelector('.signup-btn');
-const logoutBtn = document.querySelector('.logout-btn');
-
-const auth = (req, res, next) => {
-    if (req.session.loggedIn) {
-        loginBtn.classList.add('is-hidden');
-        signupBtn.classList.add('is-hidden');
-    } else {
-        logoutBtn.classList.add('is-hidden');
-    }
-};
 
 const mainRedirect = async () => {
     document.location.replace('/');

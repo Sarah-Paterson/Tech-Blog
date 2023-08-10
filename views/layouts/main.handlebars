@@ -31,15 +31,18 @@
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
+            {{#if loggedIn}}
+            <a class="button is-light logout-btn" id="homepage-logout-btn">
+              Logout
+            </a>
+            {{else}}
             <a class="button is-primary signup-btn" id="homepage-signup-btn">
               Sign up
             </a>
             <a class="button is-primary is-light login-btn" id="homepage-login-btn">
               Log in
             </a>
-            <a class="button is-light logout-btn" id="homepage-logout-btn">
-              Logout
-            </a>
+            {{/if}}
           </div>
         </div>
       </div>
@@ -54,6 +57,9 @@
       
   </footer>
   <script src="js/main.js"></script>
+  {{#if loggedIn}}
+  <script src="js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
