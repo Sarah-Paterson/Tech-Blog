@@ -1,30 +1,35 @@
 const router = require('express').Router();
-const Post = require('../models/Post');
-const User = require('../models/User');
+const { User, Post, Comment } = require('../models');
 const auth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/', auth, async (req, res) => {
     try {
-      const userData = await User.findAll({where: {user_id: req.session.user_id}});
-      // create a where clause (find all where)
+      const userData = await User.findAll({where: {id: req.session.id}});
+      const postData = await Post.findAll();
 
-      const user = userData.get({ plain: true });
+      // const user = userData.get({ plain: true });
+      const user = userData.map((aUser) =>
+      aUser.get({ plain: true }));
+
+      const posts = postData.map((post) =>
+      post.get({ plain: true }));
+      
       console.log(user);
   
-      res.render('dashboard-main', { user, content, loggedIn: req.session.loggedIn });
+      res.render('dashboard-main', { user, posts, loggedIn: req.session.loggedIn });
     } catch (err) {
       res.status(500).json(err);
       console.error(err);
     }
 });
 
-router.get('/new-post', async (req, res) => {
+router.get('/new-post', auth, async (req, res) => {
     try {
       const userData = await User.findByPk(req.session.user_id);
   
       const user = userData.get({ plain: true });
   
-      res.render('dashboard-new-post', { user, content, loggedIn: req.session.loggedIn });
+      res.render('dashboard-new-post', { user, posts, loggedIn: req.session.loggedIn });
     } catch (err) {
       res.status(500).json(err);
       console.error(err);

@@ -1,6 +1,6 @@
 
 <!-- title -->
-<div class="container has-text-centered">
+<div class="container has-text-centered mt-4 mb-6">
     <p class="title">
         Welcome to the Blog!
     </p>
@@ -27,7 +27,7 @@
                     {{/if}}
                 </p>
             </div>
-                {{#each post.comments as |comment|}}
+                {{#each comments as |comment|}}
                 <article class="media">
                     <div class="media-content">
                         <div class="content">
@@ -39,6 +39,7 @@
                     </div>
                 </article>
                 {{/each}}
+                {{#if loggedIn}}
                 <article class="media add-comment">
                     <div class="media-content">
                         <div class="field">
@@ -53,6 +54,7 @@
                         </div>
                     </div>
                 </article>
+                {{/if}}
         </div>
     </article>
 </div>
