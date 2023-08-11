@@ -19,14 +19,22 @@ Post.init(
       allowNull: false,
     },
     author: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'author',
+      },
     },
+    // author: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
     date: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
       allowNull: false,
     },
+
   },
   {
     sequelize,

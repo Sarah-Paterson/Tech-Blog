@@ -27,7 +27,7 @@ router.post('/posts', async (req, res) => {
     const postData = await Post.create({
       title: req.body.title,
       content: req.body.content,
-      author: req.session.username,
+      author: req.body.author,
     });
 
     req.session.save(() => {

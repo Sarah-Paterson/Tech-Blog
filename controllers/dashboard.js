@@ -7,7 +7,6 @@ router.get('/', auth, async (req, res) => {
       const userData = await User.findAll({where: {id: req.session.id}});
       const postData = await Post.findAll();
 
-      // const user = userData.get({ plain: true });
       const user = userData.map((aUser) =>
       aUser.get({ plain: true }));
 
@@ -25,9 +24,14 @@ router.get('/', auth, async (req, res) => {
 
 router.get('/new-post', auth, async (req, res) => {
     try {
-      const userData = await User.findByPk(req.session.user_id);
-  
-      const user = userData.get({ plain: true });
+      const userData = await User.findAll({where: {id: req.session.id}});
+      const postData = await Post.findAll();
+
+      const user = userData.map((aUser) =>
+      aUser.get({ plain: true }));
+
+      const posts = postData.map((post) =>
+      post.get({ plain: true }));
   
       res.render('dashboard-new-post', { user, posts, loggedIn: req.session.loggedIn });
     } catch (err) {

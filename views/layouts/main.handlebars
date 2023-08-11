@@ -11,24 +11,25 @@
 <body>
   
     {{!-- navigation --}}
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <span class="tag is-large m-4 is-primary">
+  <nav class="level" role="navigation" aria-label="main navigation">
+    <div class="level-right">
+      <span class="tag is-large m-4 is-primary ">
         The Tech Blog
-    </span>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
+      </span>
+      <div class="navbar-start level-right">
         <a class="navbar-item home-btn">
           Home
         </a>
-
+        {{#if loggedIn}}
         <a class="navbar-item dashboard-btn">
           Dashboard
         </a>
+        {{/if}}
 
       </div>
+    </div>
 
-      <div class="navbar-end">
+      <div class="level-left">
         <div class="navbar-item">
           <div class="buttons">
             {{#if loggedIn}}
@@ -46,7 +47,7 @@
           </div>
         </div>
       </div>
-    </div>
+    {{!-- </div> --}}
   </nav>
 
   <main>
@@ -59,6 +60,10 @@
   <script src="js/main.js"></script>
   {{#if loggedIn}}
   <script src="js/logout.js"></script>
+  <script src="js/main-loggedin.js"></script>
+  {{else}}
+  <script src="js/main-login.js"></script>
+  <script src="js/main-signup.js"></script>
   {{/if}}
 </body>
 
