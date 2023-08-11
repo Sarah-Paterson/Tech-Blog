@@ -6,6 +6,7 @@ router.get('/', async (req, res) => {
   try {
     const postData = await Post.findAll();
     const commentData = await Comment.findAll();
+    const userData = await User.findAll({where: {id: req.session.id}});
 
     const posts = postData.map((post) =>
       post.get({ plain: true })
@@ -15,11 +16,15 @@ router.get('/', async (req, res) => {
       comment.get({ plain: true })
     );
 
+    const user = userData.map((aUser) =>
+    aUser.get({ plain: true }));
+
     console.log(posts)
     console.log(comments)
     res.render('homepage', {
       posts,
       comments,
+      user,
       loggedIn: req.session.loggedIn,
     });
     

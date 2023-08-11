@@ -22,12 +22,12 @@
                     <br>
                     <small>posted by {{post.author}}</small> <small>on {{post.date}}</small>
                     <br>
-                    {{#if loggedIn}}
-                    <small><a class="has-text-primary reply-btn">Reply</a></small>
-                    {{/if}}
+                    {{!-- {{#if loggedIn}} --}}
+                    {{!-- <small><a class="has-text-primary reply-btn">Reply</a></small> --}}
+                    {{!-- {{/if}} --}}
                 </p>
             </div>
-                {{#each comments as |comment|}}
+                {{#each post.comments as |comment|}}
                 <article class="media">
                     <div class="media-content">
                         <div class="content">
@@ -39,8 +39,8 @@
                     </div>
                 </article>
                 {{/each}}
-                {{#if loggedIn}}
-                <article class="media add-comment">
+                {{!-- {{#if loggedIn}} --}}
+                <article class="media add-comment is-hidden">
                     <div class="media-content">
                         <div class="field">
                         <p class="control">
@@ -49,12 +49,12 @@
                         </div>
                         <div class="field">
                         <p class="control">
-                            <button class="button post-comment-btn">Post comment</button>
+                            <button class="button is-primary post-comment-btn">Post comment</button>
                         </p>
                         </div>
                     </div>
                 </article>
-                {{/if}}
+                {{!-- {{/if}} --}}
         </div>
     </article>
 </div>
