@@ -6,7 +6,7 @@ In this project, I worked to create a CMS-style blog site. I was motivated to cr
 
 This application was created so that a user could login and contribute to the conversation. If you are not interested in creating an account, the posts and comments are still available to be viewed. This CMS-style blog site follows the MVC paradigm, uses Handlebars.js as the templating language, Sequelize as the ORM, and uses the express-session npm package for authentication.
 
-[Here is a link to the live application](https://murmuring-mountain-58427-843ecaf8140c.herokuapp.com/)!
+[Here is a link to the live application](https://murmuring-mountain-58427-843ecaf8140c.herokuapp.com/)! (currently Application error)
 
 ---
 ---
